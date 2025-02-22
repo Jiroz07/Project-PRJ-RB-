@@ -258,7 +258,11 @@ MonoBehaviour:
   m_Texture: {fileID: 2800000, guid: bfb06f282ec073e42bb4509bb3ea3488, type: 3}
   m_UVRect:
     serializedVersion: 2
+<<<<<<< Updated upstream
     x: 1.35
+=======
+    x: 1.04
+>>>>>>> Stashed changes
     y: 0
     width: 1
     height: 1
@@ -314,9 +318,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 436c18e702745374dba17e52ce32381f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+<<<<<<< Updated upstream
   background: {fileID: 41223023}
   platform: {fileID: 554888748}
   parallaxSpeed: 0.02
+=======
+>>>>>>> Stashed changes
 --- !u!1 &554888746
 GameObject:
   m_ObjectHideFlags: 0

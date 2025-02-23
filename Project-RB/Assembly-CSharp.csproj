@@ -64,6 +64,7 @@
     <Compile Include="Assets\Script\GameManager.cs" />
     <Compile Include="Assets\player2.cs" />
     <Compile Include="Assets\Script\PlayerManager.cs" />
+    <Compile Include="Assets\GameManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

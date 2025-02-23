@@ -435,8 +435,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   background: {fileID: 41223023}
   platform: {fileID: 554888748}
+  gameState: 0
   player: {fileID: 536085514}
   parallaxSpeed: 0.02
+  uiReady: {fileID: 1506761983}
 --- !u!4 &368268747
 Transform:
   m_ObjectHideFlags: 0
@@ -564,6 +566,7 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 8
+  gameManager: {fileID: 368268746}
 --- !u!212 &536085513
 SpriteRenderer:
   m_ObjectHideFlags: 0

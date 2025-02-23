@@ -10,6 +10,7 @@ public class player2 : MonoBehaviour
     private Rigidbody2D rb;
     private Animator anim;
     private bool isGrounded;
+    public GameManager gameManager;
 
     void Start()
     {
@@ -19,6 +20,8 @@ public class player2 : MonoBehaviour
 
     void Update()
     {
+        if (gameManager.gameState != GameState.Playing)
+            return;
         float moveInput = Input.GetAxis("Horizontal"); 
         rb.linearVelocity = new Vector2(moveInput * speed, rb.linearVelocity.y); 
 

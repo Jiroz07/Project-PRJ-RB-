@@ -22,7 +22,7 @@ public class GameManager : MonoBehaviour
 
         
         float playerMovement = player.position.x - lastPlayerPosition; 
-        platform.uvRect = new Rect(platform.uvRect.x + playerMovement * parallaxSpeed, 0f, 1f, 1f);
+       // platform.uvRect = new Rect(platform.uvRect.x + playerMovement * parallaxSpeed, 0f, 1f, 1f);
 
 
         lastPlayerPosition = player.position.x;

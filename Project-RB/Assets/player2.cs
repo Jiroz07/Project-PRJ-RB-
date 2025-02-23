@@ -3,7 +3,7 @@
 public class player2 : MonoBehaviour
 {
     public float speed = 5f;
-    public float jumpForce = 5f; 
+    public float jumpForce = 40f; 
     public float rayLength = 0.5f; 
     public LayerMask groundLayer; 
 

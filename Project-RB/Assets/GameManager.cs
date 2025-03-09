@@ -48,6 +48,15 @@ public class GameManager : MonoBehaviour
 
 
             lastPlayerPosition = player.position.x;
+            if (background.uvRect.x >= 1f)
+            {
+                background.uvRect = new Rect(0f, 0f, 1f, 1f);
+            }
+
+            if (platform.uvRect.x >= 1f)
+            {
+                platform.uvRect = new Rect(0f, 0f, 1f, 1f);
+            }
         }
     }
 

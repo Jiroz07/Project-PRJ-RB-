@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      harguesa_0: -8252097768652191319
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

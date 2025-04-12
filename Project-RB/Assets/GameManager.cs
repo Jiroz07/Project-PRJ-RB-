@@ -15,7 +15,8 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        lastPlayerPosition = player.position.x; 
+        lastPlayerPosition = player.position.x;
+        //player.position = new Vector2(player.position.x, -3.328f);
     }
 
     void Update()

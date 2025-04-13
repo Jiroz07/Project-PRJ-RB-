@@ -41,13 +41,13 @@ public class EnemyController : MonoBehaviour
         animator.SetBool("enMovimiento", enMovimiento);
     }
 
-    void OnTriggerEnter2D(Collider2D other)
+  /*  void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player")) 
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
-    }
+    }*/
 
     void OnDrawGizmosSelected()
     {

@@ -12,6 +12,7 @@ public class player2 : MonoBehaviour
     public float deathUpForce = 10f;
     public float deathHorizontalForce = 2f;
     public float deathFallSpeed = 15f;
+    public AudioClip muerte1;  // Sonido de muerte
 
     private Rigidbody2D rb;
     private Animator anim;
@@ -20,11 +21,13 @@ public class player2 : MonoBehaviour
     private bool hasHitGroundAfterDeath = false;
     private float deathTime = 0f;
     private float deathFloorY = -100f;
+    private VidaJugador vidaJugador;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
+        vidaJugador = GetComponent<VidaJugador>();
 
         if (mainCamera == null)
         {
@@ -36,9 +39,9 @@ public class player2 : MonoBehaviour
     {
         if (isDead)
         {
-            if (Time.time - deathTime > 0.5f && rb.linearVelocity.y < 0)
+            if (Time.time - deathTime > 0.5f && rb.velocity.y < 0)
             {
-                rb.linearVelocity = new Vector2(rb.linearVelocity.x * 0.98f, -deathFallSpeed);
+                rb.velocity = new Vector2(rb.velocity.x * 0.98f, -deathFallSpeed);
 
                 if (!hasHitGroundAfterDeath)
                 {
@@ -54,7 +57,7 @@ public class player2 : MonoBehaviour
         }
 
         float moveInput = Input.GetAxis("Horizontal");
-        rb.linearVelocity = new Vector2(moveInput * speed, rb.linearVelocity.y);
+        rb.velocity = new Vector2(moveInput * speed, rb.velocity.y);
 
         isGrounded = IsGrounded();
 
@@ -81,7 +84,7 @@ public class player2 : MonoBehaviour
 
     void Jump()
     {
-        rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
+        rb.velocity = new Vector2(rb.velocity.x, jumpForce);
     }
 
     bool IsGrounded()
@@ -92,10 +95,13 @@ public class player2 : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Enemy") && !isDead)
+        if (vidaJugador.cantidadDeVida <= 0 || collision.CompareTag("Enemy") && !isDead)
         {
             isDead = true;
             deathTime = Time.time;
+
+            // 🔊 Ejecutar sonido de muerte
+            ControladorSonido.Instance.EjecutarSonido(muerte1);
 
             RaycastHit2D floorHit = Physics2D.Raycast(transform.position, Vector2.down, 100f, groundLayer);
             if (floorHit.collider != null)
@@ -119,7 +125,7 @@ public class player2 : MonoBehaviour
             rb.constraints = RigidbodyConstraints2D.FreezeRotation;
 
             float directionX = transform.localScale.x < 0 ? deathHorizontalForce : -deathHorizontalForce;
-            rb.linearVelocity = new Vector2(directionX, deathUpForce);
+            rb.velocity = new Vector2(directionX, deathUpForce);
 
             FreezeCameraPosition();
 
